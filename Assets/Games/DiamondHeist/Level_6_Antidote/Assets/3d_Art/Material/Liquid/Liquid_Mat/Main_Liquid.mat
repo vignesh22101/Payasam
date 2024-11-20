@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4989026139014498308
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 9
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Main_Liquid
+  m_Shader: {fileID: -6465566751694194690, guid: 6ff6aeb68809fd843abbb54f4e71a727,
+    type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_778521c2fd594700971816393ba7f4d1_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 17e4b8b300bf1504f929caf1a9f4ae45, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Alpha: 1
+    - _Alpha_Height: 0.67
+    - _ColorShift: 1
+    - _Edge0: 0.3
+    - _Edge0_1: -0.18
+    - _Edge1: 0.52
+    - _Edge1_1: 1
+    - _Height: 0.85
+    - _Height2: 0.93
+    - _Height_1: -0.06
+    - _Hue: 1
+    - _LiquidSpeed: 1
+    - _Metallic: 0.45
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Smoothness: 1
+    - _liquidSpeed: 1.5
+    - _liquid_Strength: 0.005
+    - _liquid_pattern: 1.67
+    m_Colors:
+    - _BackColor: {r: 0, g: 0.50931454, b: 1, a: 0}
+    - _Color: {r: 0, g: 2.1268716, b: 2.9960785, a: 0}
+    - _Color_1: {r: 0.22467959, g: 0.5306447, b: 0.9339623, a: 0}
+    - _Vector2: {r: 0.5, g: 0.58, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1
