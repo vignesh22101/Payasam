@@ -1,47 +1,67 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 public class G004_Backpack : MonoBehaviour
 {
     public enum CompPost { Outside, Bag };
     public enum Component { GreenChudidar, Liptick, RedChudidar, YellowChudidar, Necklace, RedTB, Jhumka, RedSaree, BlackSaree, BlueJeans, GreenTop }
-    public float totalWeight;
+    private float totalWeight;
     public float maxWeight;
     public List<Component> essentialComps, bagContents;
     [SerializeField] G004_DB _DB;
+    [SerializeField] TextMeshProUGUI weightTxt;
     bool IsEssAvailable
     {
-        get => bagContents.All(o => essentialComps.Contains(o));
+        get => essentialComps.All(o => bagContents.Contains(o));
     }
+    public bool WeightLimitExceeded => totalWeight < maxWeight;
+    public float TotalWeight
+    {
+        get => totalWeight; set
+        {
+            totalWeight = value;
+            weightTxt.text = totalWeight.ToString() + "g";
+        }
+    }
+
+    private void Start()
+    {
+        TotalWeight = 0f;
+    }
+
 
     private void OnEnable()
     {
         G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G004_GameEvents.OnSubmit += SubmitGame;
     }
 
     private void OnDisable()
     {
         G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G004_GameEvents.OnSubmit -= SubmitGame;
     }
 
     private void G004_BPEvents_OnComponetDrop(G004_Backpack.Component obj, bool intoTheBag)
     {
         if (intoTheBag)
         {
-            totalWeight += _DB.GetWeight(obj);
+            Debug.Log(obj.ToString());
+            TotalWeight += _DB.GetWeight(obj);
             bagContents.Add(obj);
         }
         else
         {
-            totalWeight -= _DB.GetWeight(obj);
+            TotalWeight -= _DB.GetWeight(obj);
             bagContents.Remove(obj);
         }
     }
 
     private void SubmitGame()
     {
-        if (totalWeight <= maxWeight && IsEssAvailable)
+        if (TotalWeight <= maxWeight && IsEssAvailable)
         {
             G004_GameEvents.GameSuccess();
         }
@@ -51,4 +71,3 @@ public class G004_Backpack : MonoBehaviour
         }
     }
 }
-

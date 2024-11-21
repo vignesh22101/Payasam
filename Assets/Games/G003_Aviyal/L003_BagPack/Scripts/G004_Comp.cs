@@ -1,49 +1,67 @@
 ﻿using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class G004_Comp : G004_DragDropMobileUI
+public class G004_Comp : G003_DragAndDropSprite
 {
     public G004_Backpack.Component comp;
     public G004_Backpack.CompPost pos, initialPos;
     public float minDistanceForBagDrop = 0.1f;
     [SerializeField] G004_Backpack backpack;
-    Vector2 backpackScreenPosition2D;
-    bool IsInDropZone
+    bool isInDropZone = false;
+    public Vector3 homePos;
+
+    public override void Start()
     {
-        get
+        base.Start();
+        isInDropZone = false;
+        homePos = transform.position;
+    }
+
+    private void OnEnable()
+    {
+        G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G004_GameEvents.OnSubmit += G004_GameEvents_OnSubmit;
+    }
+
+    private void G004_GameEvents_OnSubmit()
+    {
+        this.enabled = false;
+    }
+
+    private void OnDisable()
+    {
+        G004_BPEvents.OnComponetDrop -= G004_BPEvents_OnComponetDrop;
+        G004_GameEvents.OnSubmit -= G004_GameEvents_OnSubmit;
+    }
+
+    private void G004_BPEvents_OnComponetDrop(G004_Backpack.Component comp, bool isInBag)
+    {
+        if (comp == this.comp)
         {
-
-            // Ignore the Z-axis by using only X and Y for distance calculation
-
-            // Calculate the distance between the UI element and the backpack in screen space
-            float distance = Vector2.Distance(transform.position, backpackScreenPosition2D);
-            Debug.Log(distance);
-            return distance < minDistanceForBagDrop;
+            pos = isInBag ? G004_Backpack.CompPost.Bag : G004_Backpack.CompPost.Outside;
+            GetComponent<BoxCollider2D>().enabled = !isInBag;
+            GetComponent<SpriteRenderer>().enabled = !isInBag;
+            if (pos == G004_Backpack.CompPost.Outside)
+                transform.position = homePos;
         }
     }
 
-    private void Start()
+    public override void BeginDrag()
     {
-        Vector3 backpackScreenPosition = Camera.main.WorldToScreenPoint(backpack.transform.position);
-        backpackScreenPosition2D = new Vector2(backpackScreenPosition.x, backpackScreenPosition.y);
-    }
-
-    public override void OnBeginDrag(PointerEventData eventData)
-    {
-        base.OnBeginDrag(eventData);
+        base.BeginDrag();
         initialPos = pos;
     }
 
-    public override void OnDrag(PointerEventData eventData)
+    public override void ContinueDrag()
     {
-        base.OnDrag(eventData);
-        pos = IsInDropZone ? G004_Backpack.CompPost.Bag : G004_Backpack.CompPost.Outside;
+        base.ContinueDrag();
+        pos = isInDropZone ? G004_Backpack.CompPost.Bag : G004_Backpack.CompPost.Outside;
     }
 
-    public override void OnEndDrag(PointerEventData eventData)
+    public override void EndDrag()
     {
-        base.OnEndDrag(eventData);
-        if (pos != initialPos)
+        base.EndDrag();
+
+        if (pos != initialPos && !backpack.WeightLimitExceeded)
         {
             if (initialPos == G004_Backpack.CompPost.Outside)
                 G004_BPEvents.ComponentDropped(comp, true);
@@ -52,7 +70,23 @@ public class G004_Comp : G004_DragDropMobileUI
         }
         else
         {
-            GetComponent<RectTransform>().anchoredPosition = originalPosition;
+            GetComponent<Transform>().position = originalPosition;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.GetComponent<G004_Backpack>())
+        {
+            isInDropZone = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.GetComponent<G004_Backpack>())
+        {
+            isInDropZone = false;
         }
     }
 
