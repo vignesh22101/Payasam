@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 
-public class G004_Comp : G003_DragAndDropSprite
+public class G003_Comp : G003_DragAndDropSprite
 {
-    public G004_Backpack.Component comp;
-    public G004_Backpack.CompPost pos, initialPos;
+    public G003_Backpack.Component comp;
+    public G003_Backpack.CompPost pos, initialPos;
     public float minDistanceForBagDrop = 0.1f;
-    [SerializeField] G004_Backpack backpack;
+    [SerializeField] G003_Backpack backpack;
     bool isInDropZone = false;
     public Vector3 homePos;
 
@@ -18,8 +18,8 @@ public class G004_Comp : G003_DragAndDropSprite
 
     private void OnEnable()
     {
-        G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
-        G004_GameEvents.OnSubmit += G004_GameEvents_OnSubmit;
+        G003_DragDropEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G003_GameEvents.OnSubmit += G004_GameEvents_OnSubmit;
     }
 
     private void G004_GameEvents_OnSubmit()
@@ -29,18 +29,18 @@ public class G004_Comp : G003_DragAndDropSprite
 
     private void OnDisable()
     {
-        G004_BPEvents.OnComponetDrop -= G004_BPEvents_OnComponetDrop;
-        G004_GameEvents.OnSubmit -= G004_GameEvents_OnSubmit;
+        G003_DragDropEvents.OnComponetDrop -= G004_BPEvents_OnComponetDrop;
+        G003_GameEvents.OnSubmit -= G004_GameEvents_OnSubmit;
     }
 
-    private void G004_BPEvents_OnComponetDrop(G004_Backpack.Component comp, bool isInBag)
+    private void G004_BPEvents_OnComponetDrop(G003_Backpack.Component comp, bool isInBag)
     {
         if (comp == this.comp)
         {
-            pos = isInBag ? G004_Backpack.CompPost.Bag : G004_Backpack.CompPost.Outside;
+            pos = isInBag ? G003_Backpack.CompPost.Inside : G003_Backpack.CompPost.Outside;
             GetComponent<BoxCollider2D>().enabled = !isInBag;
             GetComponent<SpriteRenderer>().enabled = !isInBag;
-            if (pos == G004_Backpack.CompPost.Outside)
+            if (pos == G003_Backpack.CompPost.Outside)
                 transform.position = homePos;
         }
     }
@@ -54,7 +54,7 @@ public class G004_Comp : G003_DragAndDropSprite
     public override void ContinueDrag()
     {
         base.ContinueDrag();
-        pos = isInDropZone ? G004_Backpack.CompPost.Bag : G004_Backpack.CompPost.Outside;
+        pos = isInDropZone ? G003_Backpack.CompPost.Inside : G003_Backpack.CompPost.Outside;
     }
 
     public override void EndDrag()
@@ -63,10 +63,10 @@ public class G004_Comp : G003_DragAndDropSprite
 
         if (pos != initialPos && !backpack.WeightLimitExceeded)
         {
-            if (initialPos == G004_Backpack.CompPost.Outside)
-                G004_BPEvents.ComponentDropped(comp, true);
+            if (initialPos == G003_Backpack.CompPost.Outside)
+                G003_DragDropEvents.ComponentDropped(comp, true);
             else
-                G004_BPEvents.ComponentDropped(comp, false);
+                G003_DragDropEvents.ComponentDropped(comp, false);
         }
         else
         {
@@ -76,7 +76,7 @@ public class G004_Comp : G003_DragAndDropSprite
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.GetComponent<G004_Backpack>())
+        if (collision.transform.GetComponent<G003_Backpack>())
         {
             isInDropZone = true;
         }
@@ -84,7 +84,7 @@ public class G004_Comp : G003_DragAndDropSprite
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.GetComponent<G004_Backpack>())
+        if (collision.transform.GetComponent<G003_Backpack>())
         {
             isInDropZone = false;
         }

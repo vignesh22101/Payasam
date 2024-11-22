@@ -3,20 +3,20 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class G004_Backpack : MonoBehaviour
+public class G003_Backpack : MonoBehaviour
 {
-    public enum CompPost { Outside, Bag };
+    public enum CompPost { Outside, Inside };
     public enum Component { GreenChudidar, Liptick, RedChudidar, YellowChudidar, Necklace, RedTB, Jhumka, RedSaree, BlackSaree, BlueJeans, GreenTop }
     private float totalWeight;
     public float maxWeight;
     public List<Component> essentialComps, bagContents;
-    [SerializeField] G004_DB _DB;
+    [SerializeField] G003_DB _DB;
     [SerializeField] TextMeshProUGUI weightTxt;
     bool IsEssAvailable
     {
         get => essentialComps.All(o => bagContents.Contains(o));
     }
-    public bool WeightLimitExceeded => totalWeight < maxWeight;
+    public bool WeightLimitExceeded => totalWeight <= maxWeight;
     public float TotalWeight
     {
         get => totalWeight; set
@@ -34,17 +34,17 @@ public class G004_Backpack : MonoBehaviour
 
     private void OnEnable()
     {
-        G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
-        G004_GameEvents.OnSubmit += SubmitGame;
+        G003_DragDropEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G003_GameEvents.OnSubmit += SubmitGame;
     }
 
     private void OnDisable()
     {
-        G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
-        G004_GameEvents.OnSubmit -= SubmitGame;
+        G003_DragDropEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G003_GameEvents.OnSubmit -= SubmitGame;
     }
 
-    private void G004_BPEvents_OnComponetDrop(G004_Backpack.Component obj, bool intoTheBag)
+    private void G004_BPEvents_OnComponetDrop(G003_Backpack.Component obj, bool intoTheBag)
     {
         if (intoTheBag)
         {
@@ -63,11 +63,11 @@ public class G004_Backpack : MonoBehaviour
     {
         if (TotalWeight <= maxWeight && IsEssAvailable)
         {
-            G004_GameEvents.GameSuccess();
+            G003_GameEvents.GameSuccess();
         }
         else
         {
-            G004_GameEvents.GameFailed();
+            G003_GameEvents.GameFailed();
         }
     }
 }

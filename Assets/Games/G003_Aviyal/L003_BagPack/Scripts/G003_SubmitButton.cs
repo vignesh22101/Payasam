@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class G003_SubmitButton : MonoBehaviour
 {
-    [SerializeField] G004_Backpack backpack;
+    [SerializeField] G003_Backpack backpack;
 
     private void Start()
     {
@@ -13,23 +13,23 @@ public class G003_SubmitButton : MonoBehaviour
 
     private void OnEnable()
     {
-        G004_BPEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
+        G003_DragDropEvents.OnComponetDrop += G004_BPEvents_OnComponetDrop;
         GetComponent<Button>().onClick.AddListener(OnClick);
     }
 
     private void OnClick()
     {
-        G004_GameEvents.SubmitGame();
+        G003_GameEvents.SubmitGame();
         GetComponent<Button>().interactable = false;
     }
 
     private void OnDisable()
     {
-        G004_BPEvents.OnComponetDrop -= G004_BPEvents_OnComponetDrop;
+        G003_DragDropEvents.OnComponetDrop -= G004_BPEvents_OnComponetDrop;
         GetComponent<Button>().onClick.RemoveListener(OnClick);
     }
 
-    private void G004_BPEvents_OnComponetDrop(G004_Backpack.Component obj, bool intoTheBag)
+    private void G004_BPEvents_OnComponetDrop(G003_Backpack.Component obj, bool intoTheBag)
     {
         Invoke(nameof(RefreshStatus), 0.1f);
     }

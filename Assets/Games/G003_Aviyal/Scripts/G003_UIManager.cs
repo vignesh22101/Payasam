@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class G004_UIManager : MonoBehaviour
+public class G003_UIManager : MonoBehaviour
 {
     [SerializeField] bool retryAvaiable;
     [SerializeField] GameObject retryUI, successUI ,failedUI;
@@ -14,9 +14,9 @@ public class G004_UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        G004_GameEvents.OnSubmit += G004_GameEvents_OnSubmit;
-        G004_GameEvents.OnFailed += G004_GameEvents_OnFailed;
-        G004_GameEvents.OnSuccess += G004_GameEvents_OnSuccess; ;
+        G003_GameEvents.OnSubmit += G004_GameEvents_OnSubmit;
+        G003_GameEvents.OnFailed += G004_GameEvents_OnFailed;
+        G003_GameEvents.OnSuccess += G004_GameEvents_OnSuccess; ;
     }
 
     private void G004_GameEvents_OnSuccess()
@@ -45,9 +45,9 @@ public class G004_UIManager : MonoBehaviour
 
     private void OnDisable()
     {
-        G004_GameEvents.OnSuccess -= G004_GameEvents_OnSuccess; ;
-        G004_GameEvents.OnSubmit -= G004_GameEvents_OnSubmit;
-        G004_GameEvents.OnFailed -= G004_GameEvents_OnFailed;
+        G003_GameEvents.OnSuccess -= G004_GameEvents_OnSuccess; ;
+        G003_GameEvents.OnSubmit -= G004_GameEvents_OnSubmit;
+        G003_GameEvents.OnFailed -= G004_GameEvents_OnFailed;
     }
 
     private void G004_GameEvents_OnSubmit()

@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class G003_UnpackItem : MonoBehaviour
 {
-    public G004_Backpack.Component comp;
+    public G003_Backpack.Component comp;
     public Image visual;
     public Button button;
-    [SerializeField] G004_DB db;
+    [SerializeField] G003_DB db;
 
     public void Initialize()
     {
@@ -26,7 +26,7 @@ public class G003_UnpackItem : MonoBehaviour
 
     private void OnClick()
     {
-        G004_BPEvents.ComponentDropped(comp, false);
+        G003_DragDropEvents.ComponentDropped(comp, false);
         SelfTerminate();
     }
 

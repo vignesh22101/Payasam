@@ -1,6 +1,6 @@
 ﻿using System;
 
-public static class G004_GameEvents
+public static class G003_GameEvents
 {
     public static event Action OnSubmit, OnFailed, OnSuccess;
 

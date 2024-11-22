@@ -63,7 +63,7 @@ public class G003_Timer : MonoBehaviour
 
     private void AutoSubmit()
     {
-        G004_GameEvents.SubmitGame();
+        G003_GameEvents.SubmitGame();
     }
 
     public void StartTimer(float duration, bool countdown = true)
