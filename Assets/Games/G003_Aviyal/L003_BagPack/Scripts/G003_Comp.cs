@@ -4,9 +4,8 @@ public class G003_Comp : G003_DragAndDropSprite
 {
     public G003_Backpack.Component comp;
     public G003_Backpack.CompPost pos, initialPos;
-    public float minDistanceForBagDrop = 0.1f;
     [SerializeField] G003_Backpack backpack;
-    bool isInDropZone = false;
+    [SerializeField] bool isInDropZone = false;
     public Vector3 homePos;
 
     public override void Start()
@@ -39,7 +38,7 @@ public class G003_Comp : G003_DragAndDropSprite
         {
             pos = isInBag ? G003_Backpack.CompPost.Inside : G003_Backpack.CompPost.Outside;
             GetComponent<BoxCollider2D>().enabled = !isInBag;
-            GetComponent<SpriteRenderer>().enabled = !isInBag;
+            GetComponentInChildren<SpriteRenderer>().enabled = !isInBag;
             if (pos == G003_Backpack.CompPost.Outside)
                 transform.position = homePos;
         }
@@ -70,13 +69,13 @@ public class G003_Comp : G003_DragAndDropSprite
         }
         else
         {
-            GetComponent<Transform>().position = originalPosition;
+            GetComponent<Transform>().position = homePos;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.GetComponent<G003_Backpack>())
+        if (collision.transform.GetComponent<G003_Backpack>() && !backpack.WeightLimitExceeded)
         {
             isInDropZone = true;
         }
@@ -84,7 +83,7 @@ public class G003_Comp : G003_DragAndDropSprite
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.transform.GetComponent<G003_Backpack>())
+        if (collision.transform.GetComponent<G003_Backpack>() && !backpack.WeightLimitExceeded)
         {
             isInDropZone = false;
         }

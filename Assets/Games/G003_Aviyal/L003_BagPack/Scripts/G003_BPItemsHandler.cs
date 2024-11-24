@@ -12,7 +12,7 @@ public class G003_BPItemsHandler : MonoBehaviour
 
     private void Reset()
     {
-        G004_BPEvents_OnComponetDrop(G003_Backpack.Component.Necklace, false);
+        items.ForEach(o => G004_BPEvents_OnComponetDrop(o.comp, false));
     }
 
     private void OnEnable()

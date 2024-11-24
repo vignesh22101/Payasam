@@ -5,7 +5,7 @@ public class G003_UIManager : MonoBehaviour
 {
     [SerializeField] bool retryAvaiable;
     [SerializeField] GameObject retryUI, successUI ,failedUI;
-    [SerializeField] List<GameObject> disableOnStart;
+    [SerializeField] List<GameObject> disableOnStart,disableOnSubmit;
 
     private void Start()
     {
@@ -52,6 +52,6 @@ public class G003_UIManager : MonoBehaviour
 
     private void G004_GameEvents_OnSubmit()
     {
-
+        disableOnSubmit.ForEach(o => o.SetActive(false));
     }
 }

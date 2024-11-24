@@ -6,7 +6,11 @@ using UnityEngine;
 public class G003_Backpack : MonoBehaviour
 {
     public enum CompPost { Outside, Inside };
-    public enum Component { GreenChudidar, Liptick, RedChudidar, YellowChudidar, Necklace, RedTB, Jhumka, RedSaree, BlackSaree, BlueJeans, GreenTop }
+    public enum Component
+    {
+        GreenChudidar, Liptick, RedChudidar, YellowChudidar, Necklace, RedTB, Jhumka, RedSaree, BlackSaree, BlueJeans, GreenTop,
+        WDMale, WDFemale, Shoes, Slippers, Purse, Charger, Mobile, LadyBag, Groceries, TeddyBear, Books
+    }
     private float totalWeight;
     public float maxWeight;
     public List<Component> essentialComps, bagContents;
@@ -16,7 +20,7 @@ public class G003_Backpack : MonoBehaviour
     {
         get => essentialComps.All(o => bagContents.Contains(o));
     }
-    public bool WeightLimitExceeded => totalWeight <= maxWeight;
+    public bool WeightLimitExceeded => totalWeight > maxWeight;
     public float TotalWeight
     {
         get => totalWeight; set

@@ -14,6 +14,9 @@ public class G003_DragAndDropSprite : MonoBehaviour
 
     void Update()
     {
+        if (G003_DisableDragAndDrop.DisableDragAndDrop)
+            return;
+
         if (Input.GetMouseButtonDown(0)) // Start dragging
         {
             Vector3 mouseWorldPosition = GetMouseWorldPosition();

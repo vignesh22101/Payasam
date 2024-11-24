@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class G004_ComponentCl
+public class G003_ComponentCl
 {
     public G003_Backpack.Component comp;
     public float weight;
