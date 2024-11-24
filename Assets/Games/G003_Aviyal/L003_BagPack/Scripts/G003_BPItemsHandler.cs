@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class G003_BPItemsHandler : MonoBehaviour
@@ -34,5 +35,10 @@ public class G003_BPItemsHandler : MonoBehaviour
                 item.gameObject.SetActive(isInBag);
             }
         });
+    }
+
+    private void OnValidate()
+    {
+        items = GetComponentsInChildren<G003_BPItem>().ToList();
     }
 }

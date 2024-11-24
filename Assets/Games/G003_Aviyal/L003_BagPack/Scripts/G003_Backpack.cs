@@ -9,7 +9,10 @@ public class G003_Backpack : MonoBehaviour
     public enum Component
     {
         GreenChudidar, Liptick, RedChudidar, YellowChudidar, Necklace, RedTB, Jhumka, RedSaree, BlackSaree, BlueJeans, GreenTop,
-        WDMale, WDFemale, Shoes, Slippers, Purse, Charger, Mobile, LadyBag, Groceries, TeddyBear, Books
+        WDMale, WDFemale, Shoes, Slippers, Purse, Charger, Mobile, LadyBag, Groceries, TeddyBear, Books, BleachingBottles,
+        LeatherBag,PurseBag,Alcohol,CartonBox2,CoffinBox,SomeBox,RoughBag,DressBox,LadyBags2,RedTopM,Towels,BlueMetalBox,
+        ShoeSet,CasualClothSet
+
     }
     private float totalWeight;
     public float maxWeight;

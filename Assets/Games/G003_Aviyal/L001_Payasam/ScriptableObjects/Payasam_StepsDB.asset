@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceef4aec7ce7a3f48aba0158ada93e8c, type: 3}
+  m_Name: Payasam_StepsDB
+  m_EditorClassIdentifier: 
+  steps:
+  - instruction: Pour 500 gms of ada in the main container
+    time: 0
+  - instruction: Pour 2 liter of water, and boil it for 6 seconds
+    time: 6
+  - instruction: 'Pour 1 liter of  cup jaggery syrup '
+    time: 0
+  - instruction: steer it for 10 seconds
+    time: 10
+  - instruction: 'Add 1 liter of coconut milk '
+    time: 10
+  - instruction: Add 10 gms dry ginger powder and 10 gms teaspoon cardamom powder.
+    time: 0
+  - instruction: Turnoff burner
+    time: 0
+  - instruction: Add 500 ml of thick coconut milk and steer
+    time: 10
+  - instruction: Add Cashews and Coconut Mix (10 seconds)
+    time: 10
+  - instruction: Add 100 ml of ghee for richness and steer
+    time: 10

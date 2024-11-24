@@ -42,6 +42,9 @@ EditorBuildSettings:
     path: Assets/Games/LMO_Game/Level_5_Maze/Scenes/G002_Maze.unity
     guid: 5702e967957f6714e8b927a941c31f10
   - enabled: 1
+    path: Assets/Games/G004_Dating/L002_Cocktail/Scenes/Cocktail.unity
+    guid: 44603eddb1eb6994caa91b368ce1e2bf
+  - enabled: 1
     path: Assets/Games/G003_Aviyal/L003_BagPack/Scenes/Game.unity
     guid: 0328ae8258f392348b5c9ee0e5b8616e
   m_configObjects:

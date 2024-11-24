@@ -16,35 +16,80 @@ MonoBehaviour:
   - comp: 4
     weight: 500
     sprite: {fileID: 21300000, guid: 31035da6dc332eb47b9dbd60a40b60eb, type: 3}
-  - comp: 17
+  - comp: 22
     weight: 150
-    sprite: {fileID: 21300000, guid: 4c6797bdb60c1414c8fdf0a0448f076e, type: 3}
-  - comp: 16
+    sprite: {fileID: 21300000, guid: 2e80b45e2f226d44faf702c237f17938, type: 3}
+  - comp: 23
     weight: 150
-    sprite: {fileID: 21300000, guid: 95390b265b5cf6d4d9c21fb6ebf3eba2, type: 3}
-  - comp: 15
+    sprite: {fileID: 21300000, guid: 99ec1aff5c82092499e5c8105b851ad1, type: 3}
+  - comp: 25
     weight: 200
-    sprite: {fileID: 21300000, guid: b034ea096032e76478505bd6868199c8, type: 3}
-  - comp: 14
+    sprite: {fileID: 21300000, guid: c32eccb957f8bda44a4442a7f70ee568, type: 3}
+  - comp: 1
     weight: 350
-    sprite: {fileID: 21300000, guid: 7da2ea8c65bc5f94da9db3d92cfbbbe3, type: 3}
-  - comp: 13
+    sprite: {fileID: 21300000, guid: 53ef41a1dabab384e86701b832e46176, type: 3}
+  - comp: 26
     weight: 350
-    sprite: {fileID: 21300000, guid: 104477808fd9fe04e9c1ec69f5f47ac3, type: 3}
-  - comp: 12
+    sprite: {fileID: 21300000, guid: 19ff7eb4896e11f4b88ea19b0964fa9f, type: 3}
+  - comp: 29
     weight: 750
-    sprite: {fileID: 21300000, guid: b98ee737a37f9d24e9c8ec3761833581, type: 3}
-  - comp: 11
+    sprite: {fileID: 21300000, guid: e74ce14f8b8df0043b4f7f7b46c593a8, type: 3}
+  - comp: 30
     weight: 750
-    sprite: {fileID: 21300000, guid: 4fa0763f6400e6a4cabdb99a7a3e2ff8, type: 3}
+    sprite: {fileID: 21300000, guid: c6c60dca38fdc184caa10abd7616ec1c, type: 3}
+  - comp: 31
+    weight: 200
+    sprite: {fileID: 21300000, guid: b0a3887e44267ef48810477364ee8db7, type: 3}
+  - comp: 3
+    weight: 500
+    sprite: {fileID: 21300000, guid: 5f804322b7635de4c90bff99762626d2, type: 3}
+  - comp: 8
+    weight: 200
+    sprite: {fileID: 21300000, guid: bd2a5515fe038864192bca21167cc699, type: 3}
+  - comp: 7
+    weight: 300
+    sprite: {fileID: 21300000, guid: 920c46bb7c1af1a4faa463d5e3622b99, type: 3}
+  - comp: 10
+    weight: 300
+    sprite: {fileID: 21300000, guid: ed75fdd96da187d4c932c451776387e2, type: 3}
+  - comp: 32
+    weight: 300
+    sprite: {fileID: 21300000, guid: bd6c9e6001baa7d4d8bc1c64e872b214, type: 3}
+  - comp: 0
+    weight: 300
+    sprite: {fileID: 21300000, guid: 71dabcb648c246044ac667acd3681adf, type: 3}
+  - comp: 34
+    weight: 300
+    sprite: {fileID: 21300000, guid: 81d1dc3fca3b87c489ea07a35c872616, type: 3}
+  - comp: 35
+    weight: 300
+    sprite: {fileID: 21300000, guid: 4509fa7195c339143baf712e971562d2, type: 3}
+  - comp: 9
+    weight: 300
+    sprite: {fileID: 21300000, guid: 0b30e583bb7d634438efca1d713ed12b, type: 3}
+  - comp: 36
+    weight: 300
+    sprite: {fileID: 21300000, guid: f283dd83ca34c49479656708aa0500e8, type: 3}
+  - comp: 33
+    weight: 300
+    sprite: {fileID: 21300000, guid: e977c1313717c6448be3df56f2b88642, type: 3}
+  - comp: 24
+    weight: 300
+    sprite: {fileID: 21300000, guid: 42f23e3def22665478062819e66fa3e9, type: 3}
+  - comp: 27
+    weight: 300
+    sprite: {fileID: 21300000, guid: 1038f637e3c8ad84dbf452d854df396f, type: 3}
+  - comp: 28
+    weight: 300
+    sprite: {fileID: 21300000, guid: cb2f3ddb0af59d140a1480f8c1119684, type: 3}
   - comp: 18
-    weight: 200
+    weight: 300
     sprite: {fileID: 21300000, guid: 99ec1aff5c82092499e5c8105b851ad1, type: 3}
   - comp: 19
-    weight: 500
+    weight: 300
     sprite: {fileID: 21300000, guid: 30502cc7b7b54f0438afebe4ac54d65b, type: 3}
   - comp: 20
-    weight: 200
+    weight: 300
     sprite: {fileID: 21300000, guid: c0d433dbe20a0c548b5ce1d61c6780a5, type: 3}
   - comp: 21
     weight: 300

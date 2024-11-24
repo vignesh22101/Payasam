@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc2d2fca27094340be4fd8d4fc9d23a, type: 3}
+  m_Name: Cocktail_StepsDB
+  m_EditorClassIdentifier: 
+  steps:
+  - instruction: Start by adding ice cubes to your cocktail shaker
+    comp: 0
+    time: 5
+  - instruction: "Pour 1\xBD oz of vodka into the shaker"
+    comp: 1
+    time: 5
+  - instruction: "Add \xBD oz of Peach Schnapps for that fruity sweetness"
+    comp: 6
+    time: 5
+  - instruction: Now, add 2 oz of cranberry juice to give the drink its signature
+      color
+    comp: 2
+    time: 10
+  - instruction: Pour 2 oz of orange juice to balance the tart cranberry flavor
+    comp: 3
+    time: 10
+  - instruction: Shake the cocktail for 15 seconds to blend all the flavors
+    comp: 7
+    time: 15
+  - instruction: Pour into Glass
+    comp: 7
+    time: 5
+  - instruction: Garnish with Orange Slice
+    comp: 4
+    time: 5
+  - instruction: Finish with a cherry on top for a perfect presentation
+    comp: 5
+    time: 3
